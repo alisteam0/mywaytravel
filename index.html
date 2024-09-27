@@ -79,6 +79,30 @@
             return target;
           };
         }
+        document.addEventListener('DOMContentLoaded', function() {
+  // Find the element with class 'live-theme-message'
+  let liveMessage = document.querySelector('.live-theme-message');
+
+  if (liveMessage) {
+    // Set up a MutationObserver to watch for class changes
+    const observer = new MutationObserver((mutationsList) => {
+      mutationsList.forEach((mutation) => {
+        // If the class list changes, check if 'show-message' is added
+        if (mutation.attributeName === 'class') {
+          const currentClass = liveMessage.getAttribute('class');
+
+          // If 'show-message' class is present, remove the element
+          if (currentClass.includes('show-message')) {
+            liveMessage.remove();  // Remove the element when 'show-message' is added
+          }
+        }
+      });
+    });
+
+    // Start observing the 'live-theme-message' element for attribute (class) changes
+    observer.observe(liveMessage, { attributes: true });
+  }
+});
       </script>
       <link rel="preload stylesheet" as="style" media="all" href="https://static.web-repository.com/styles/platform.client.min.css?v=1026" />
         <link rel="preload stylesheet" as="style"
@@ -502,7 +526,7 @@
     fill: rgba(42, 28, 72, 1);
   }
 
-  .theme .primaryColor-bg2, 
+  theme .primaryColor-bg2, 
   .top-bar .social-media i,
   .theme .read-more,
   .blog-comment-form a:hover,
@@ -732,7 +756,7 @@
       
       data-type="Container"
       class="grid-row
-       phone-hidden stretched-mobile stretched-tablet"
+       non-stretched-mobile stretched-tablet"
       data-delay=""
       style="padding-bottom:0%;
       padding-top: 0.902425%; padding-left: 0;
@@ -743,7 +767,7 @@
       
       background-image: none;">
       <div class="grid-content ">
-          <div class="grid-column    " 
+          <div class="grid-column  justify-center  " 
                  style="width: 72%;
                  padding-left:0%;padding-right:0%;background-color: transparent;
                  background-image: none;
@@ -1051,7 +1075,7 @@
 </div>
               </div><div class="grid-column    " 
                  style="width: 28%;
-                 padding-left:6%;padding-right:0%;
+                 padding-left:6%;padding-right:0%;background-color: transparent;
                  background-image: none;
                  
                    background-size: cover;
@@ -1124,14 +1148,14 @@
   </div>
               <div class="widget-row with-centered-content">
                   <div class="widget 
-         anim-delayed-item widgetResponsive textWidget col12" id="text-widget-1595446438599"
+         anim-delayed-item widgetResponsive textWidget col13" id="text-widget-1595446438599"
          data-type="TextWidget" 
          data-delay=""
          data-animation-duration="1100"
          data-animation-delay="0"
          data-animation="lazyAnimation-bounceInRight"
          style="margin-top: 2.81818%; margin-left: 0%;">
-      <div class="text-widget-content"><h3 style="text-align: center;"><span style="background-color: rgb(174, 84, 84);"></span><span style="background-color: rgb(191, 103, 103);"></span><span style="background-color: rgb(217, 139, 139);"></span><span style="background-color: rgb(244, 188, 188);"></span><span style="background-color: rgb(255, 237, 237);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgba(166, 77, 77, 0.965);"></span><span style="background-color: rgba(166, 77, 77, 0.937);"></span><span style="background-color: rgba(166, 77, 77, 0.886);"></span><span style="background-color: rgba(166, 77, 77, 0.675);"></span><span style="background-color: rgba(166, 77, 77, 0.455);"></span><span style="background-color: rgba(166, 77, 77, 0.184);"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="color: rgb(110, 62, 62);"></span><span style="color: rgb(110, 61, 61);"></span><span style="color: rgb(110, 59, 59);"></span><span style="color: rgb(110, 55, 55);"></span><span style="color: rgb(116, 51, 51);"></span><span style="color: rgb(124, 47, 47);"></span><span style="color: rgb(134, 43, 43);"></span><span style="color: rgb(147, 37, 37);"></span><span style="color: rgb(159, 30, 30);"></span><span style="color: rgb(169, 23, 23);"></span><span style="color: rgb(178, 13, 13);"></span><span style="color: rgb(186, 5, 5);"></span><span style="color: rgb(193, 0, 0);"></span><span style="color: rgb(196, 0, 0);"></span><span style="color: rgb(196, 0, 0);"></span><span style="color: rgb(198, 0, 0);"></span><span style="color: rgb(201, 0, 0);"></span><span style="color: rgb(202, 0, 0);"></span><span style="color: rgb(204, 0, 0);"></span><span style="color: rgb(207, 0, 0);"></span><span style="color: rgb(212, 0, 0);"></span><span style="color: rgb(217, 0, 0);"></span><span style="color: rgb(225, 0, 0);"></span><span style="color: rgb(234, 0, 0);"></span><span style="color: rgb(241, 0, 0);"></span><span style="color: rgb(245, 0, 0);"></span><span style="color: rgb(250, 0, 0);"></span><span style="color: rgb(252, 0, 0);"></span><span style="color: rgb(253, 0, 0);"></span><span style="color: rgb(255, 0, 0);"></span><span style="color: rgb(255, 0, 0);"></span><span style="color: rgb(255, 0, 0);"></span><span style="color: rgb(255, 0, 0);"></span><span style="color: rgb(255, 23, 23);"></span><span style="color: rgb(255, 66, 66);"></span><span style="color: rgb(255, 103, 103);"></span><span style="color: rgb(255, 128, 128);"></span><span style="color: rgb(255, 146, 146);"></span><span style="color: rgb(255, 168, 168);"></span><span style="color: rgb(255, 192, 192);"></span><span style="color: rgb(255, 218, 218);"></span><span style="color: rgb(255, 251, 251);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="background-color: rgb(166, 77, 77);"></span><span class="color-primary" style="font-family: Arial; background-color: rgb(255, 255, 255);">&nbsp;استمتع بتجربة فريدة من نوعها في سفرك مع ماي واي</span></h3></div>
+      <div class="text-widget-content"><h3 style="text-align: center;"><span style="font-style: italic; font-family: ccc;"><span style="background-color: rgb(174, 84, 84);"></span><span style="background-color: rgb(191, 103, 103);"></span><span style="background-color: rgb(217, 139, 139);"></span><span style="background-color: rgb(244, 188, 188);"></span><span style="background-color: rgb(255, 237, 237);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgb(255, 255, 255);"></span><span style="background-color: rgba(166, 77, 77, 0.965);"></span><span style="background-color: rgba(166, 77, 77, 0.937);"></span><span style="background-color: rgba(166, 77, 77, 0.886);"></span><span style="background-color: rgba(166, 77, 77, 0.675);"></span><span style="background-color: rgba(166, 77, 77, 0.455);"></span><span style="background-color: rgba(166, 77, 77, 0.184);"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="background-color: transparent;"></span><span style="color: rgb(110, 62, 62);"></span><span style="color: rgb(110, 61, 61);"></span><span style="color: rgb(110, 59, 59);"></span><span style="color: rgb(110, 55, 55);"></span><span style="color: rgb(116, 51, 51);"></span><span style="color: rgb(124, 47, 47);"></span><span style="color: rgb(134, 43, 43);"></span><span style="color: rgb(147, 37, 37);"></span><span style="color: rgb(159, 30, 30);"></span><span style="color: rgb(169, 23, 23);"></span><span style="color: rgb(178, 13, 13);"></span><span style="color: rgb(186, 5, 5);"></span><span style="color: rgb(193, 0, 0);"></span><span style="color: rgb(196, 0, 0);"></span><span style="color: rgb(196, 0, 0);"></span><span style="color: rgb(198, 0, 0);"></span><span style="color: rgb(201, 0, 0);"></span><span style="color: rgb(202, 0, 0);"></span><span style="color: rgb(204, 0, 0);"></span><span style="color: rgb(207, 0, 0);"></span><span style="color: rgb(212, 0, 0);"></span><span style="color: rgb(217, 0, 0);"></span><span style="color: rgb(225, 0, 0);"></span><span style="color: rgb(234, 0, 0);"></span><span style="color: rgb(241, 0, 0);"></span><span style="color: rgb(245, 0, 0);"></span><span style="color: rgb(250, 0, 0);"></span><span style="color: rgb(252, 0, 0);"></span><span style="color: rgb(253, 0, 0);"></span><span style="color: rgb(255, 0, 0);"></span><span style="color: rgb(255, 0, 0);"></span><span style="color: rgb(255, 0, 0);"></span><span style="color: rgb(255, 0, 0);"></span><span style="color: rgb(255, 23, 23);"></span><span style="color: rgb(255, 66, 66);"></span><span style="color: rgb(255, 103, 103);"></span><span style="color: rgb(255, 128, 128);"></span><span style="color: rgb(255, 146, 146);"></span><span style="color: rgb(255, 168, 168);"></span><span style="color: rgb(255, 192, 192);"></span><span style="color: rgb(255, 218, 218);"></span><span style="color: rgb(255, 251, 251);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="color: rgb(255, 255, 255);"></span><span style="background-color: rgb(166, 77, 77);"></span><span class="color-secondary2" style="background-color: transparent; font-size: 22px;">&nbsp;استمتع بتجربة فريدة من نوعها في سفرك مع ماي واي</span></span></h3></div>
     </div>
   </div>
               <div class="widget-row with-centered-content">
@@ -2974,6 +2998,7 @@
     'label.minutes_short': "دقيقة"
               
   }, WebPlatform.Phrases || {});
+
 </script><script type="text/javascript">
           WebPlatform.Store = WebPlatform.Store || {};
         
@@ -3020,15 +3045,6 @@
 
       <script type="text/javascript" src="https://static.web-repository.com/scripts/platform.client.min.js?v=1026" data-cookieconsent="ignore"></script>
         
-
-
-
-
-
-
-
-
-
 
     </body>
   </html>
