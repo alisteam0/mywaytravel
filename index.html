@@ -79,30 +79,6 @@
             return target;
           };
         }
-        document.addEventListener('DOMContentLoaded', function() {
-  // Find the element with class 'live-theme-message'
-  let liveMessage = document.querySelector('.live-theme-message');
-
-  if (liveMessage) {
-    // Set up a MutationObserver to watch for class changes
-    const observer = new MutationObserver((mutationsList) => {
-      mutationsList.forEach((mutation) => {
-        // If the class list changes, check if 'show-message' is added
-        if (mutation.attributeName === 'class') {
-          const currentClass = liveMessage.getAttribute('class');
-
-          // If 'show-message' class is present, remove the element
-          if (currentClass.includes('show-message')) {
-            liveMessage.remove();  // Remove the element when 'show-message' is added
-          }
-        }
-      });
-    });
-
-    // Start observing the 'live-theme-message' element for attribute (class) changes
-    observer.observe(liveMessage, { attributes: true });
-  }
-});
       </script>
       <link rel="preload stylesheet" as="style" media="all" href="https://static.web-repository.com/styles/platform.client.min.css?v=1026" />
         <link rel="preload stylesheet" as="style"
@@ -526,7 +502,7 @@
     fill: rgba(42, 28, 72, 1);
   }
 
-  theme .primaryColor-bg2, 
+  .theme .primaryColor-bg2, 
   .top-bar .social-media i,
   .theme .read-more,
   .blog-comment-form a:hover,
@@ -680,9 +656,6 @@
   .theme .theme18 .navigation-wrapper .active>a:hover {
     color: #fff !important;
   }
-
-  </style><style type="text/css">
-  
   .live-theme-message, .live-theme-message.show-message {
   display: none !important;
   visibility: hidden !important;
@@ -691,6 +664,11 @@
   height: 0 !important;
   width: 0 !important;
 }
+
+
+  </style><style type="text/css">
+  
+
 
 
 
@@ -813,6 +791,9 @@
       <div class="col20 f-left" style="text-align: center">
         <a class="social-media-button slow-transition-bg" href="https://www.facebook.com/mywaytravell" target="_blank">
                 <i class="fa fa-facebook"></i>
+              </a>
+            <a class="social-media-button slow-transition-bg" href="https://www.instagram.com/mywaytraveleg" target="_blank">
+                <i class="fa fa-instagram"></i>
               </a>
             </div>
     </div>
@@ -1530,7 +1511,7 @@
          data-animation-delay="0"
          data-animation="lazyAnimation-flipInX"
          style="margin-top: 0%; margin-left: 0px;">
-      <div class="text-widget-content"><h2 style="text-align: right; line-height: 1.5;"><span style="background-color: rgb(45, 75, 115);"></span><span style="background-color: rgb(45, 75, 115);"></span><span style="color: rgb(45, 75, 115);"></span><span style="font-weight: bold; font-size: 32px; color: rgb(255, 255, 255); font-family: bbb; background-color: rgb(45, 75, 115);" class="">اعمال الشركة مع الهيئات المختلفة</span></h2></div>
+      <div class="text-widget-content"><h2 style="text-align: right; line-height: 1.8;"><span style="background-color: rgb(45, 75, 115);"></span><span style="background-color: rgb(45, 75, 115);"></span><span style="color: rgb(45, 75, 115);"></span><span style="font-weight: bold; font-size: 32px; color: rgb(255, 255, 255); font-family: bbb; background-color: rgb(45, 75, 115);" class="">اعمال الشركة مع الهيئات المختلفة</span></h2></div>
     </div>
   </div>
               <div class="widget-row ">
@@ -2729,6 +2710,9 @@
         <a class="social-media-button slow-transition-bg" href="https://www.facebook.com/mywaytravell" target="_blank">
                 <i class="fa fa-facebook"></i>
               </a>
+            <a class="social-media-button slow-transition-bg" href="https://www.instagram.com/mywaytraveleg" target="_blank">
+                <i class="fa fa-instagram"></i>
+              </a>
             </div>
     </div>
   </div>
@@ -3005,7 +2989,6 @@
     'label.minutes_short': "دقيقة"
               
   }, WebPlatform.Phrases || {});
-
 </script><script type="text/javascript">
           WebPlatform.Store = WebPlatform.Store || {};
         
@@ -3052,6 +3035,5 @@
 
       <script type="text/javascript" src="https://static.web-repository.com/scripts/platform.client.min.js?v=1026" data-cookieconsent="ignore"></script>
         
-
     </body>
   </html>
