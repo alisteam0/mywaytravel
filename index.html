@@ -2158,7 +2158,6 @@
 
                 <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-
                 <div class="widget-row">
                   <div class="widget form-widget-style-1 formWidget col20 widgetResponsive"
                     id="form-widget-1727659257494" data-type="FormWidget" data-delay="" data-animation-duration=""
@@ -2249,23 +2248,23 @@
                           </select>
                         </div>
 
-                        <!-- حج ام عمرة Checkboxes -->
-                        <div class="form-field required-field" data-type="checkbox">
+                        <!-- حج ام عمرة Radio Buttons -->
+                        <div class="form-field required-field" data-type="radio">
                           <span class="title" style="color:#444444; font-size:19px; font-family:bbb;">
                             حج ام عمرة<span class="required">*</span>
                           </span>
                           <span class="field-error" style="display:none;">حقول مطلوبة!</span>
-                          <label class="option custom-checkbox">
-                            <input type="checkbox" name="field6" value="حج" data-name="حج ام عمرة"
-                              aria-label="حج ام عمرة" required>
-                            <div class="custom-checkbox-label" style="color:#444444; font-size:19px; font-family:bbb;">
-                              حج</div>
+                          <label class="option custom-radio">
+                            <input type="radio" name="field6" value="حج" data-name="حج ام عمرة" aria-label="حج ام عمرة"
+                              required>
+                            <div class="custom-radio-label" style="color:#444444; font-size:19px; font-family:bbb;">حج
+                            </div>
                           </label>
-                          <label class="option custom-checkbox">
-                            <input type="checkbox" name="field6" value="عمرة" data-name="حج ام عمرة"
+                          <label class="option custom-radio">
+                            <input type="radio" name="field6" value="عمرة" data-name="حج ام عمرة"
                               aria-label="حج ام عمرة" required>
-                            <div class="custom-checkbox-label" style="color:#444444; font-size:19px; font-family:bbb;">
-                              عمرة</div>
+                            <div class="custom-radio-label" style="color:#444444; font-size:19px; font-family:bbb;">عمرة
+                            </div>
                           </label>
                         </div>
 
@@ -2297,28 +2296,53 @@
                     const departureDate = document.getElementsByName('field3')[0].value;
                     const returnDate = document.getElementsByName('field4')[0].value;
                     const hotelType = document.getElementsByName('field5')[0].value;
-                    const pilgrimageType = document.querySelectorAll('input[name="field6"]:checked');
+                    const pilgrimageType = document.querySelector('input[name="field6"]:checked');
 
-                    // Validation for phone (only numbers) and email (valid email format)
+                    // Validation
                     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
                     const phonePattern = /^[0-9]+$/;
                     let valid = true;
 
-                    if (!email.match(emailPattern)) {
-                      document.getElementsByName('field1')[0].nextElementSibling.style.display = 'block'; // Show email error
+                    // Clear previous error messages
+                    document.querySelectorAll('.field-error').forEach(el => el.style.display = 'none');
+
+                    // Check for empty fields
+                    if (!name) {
+                      alert('اسمك مطلوب!');
+                      valid = false;
+                    }
+                    if (!email) {
+                      alert('البريد الإلكتروني مطلوب!');
+                      valid = false;
+                    } else if (!email.match(emailPattern)) {
+                      alert('البريد الإلكتروني غير صالح!');
+                      valid = false;
+                    }
+                    if (!phone) {
+                      alert('رقم الهاتف مطلوب!');
+                      valid = false;
+                    } else if (!phone.match(phonePattern)) {
+                      alert('رقم الهاتف يجب أن يحتوي على أرقام فقط!');
+                      valid = false;
+                    }
+                    if (!departureDate) {
+                      alert('يوم الذهاب مطلوب!');
+                      valid = false;
+                    }
+                    if (!returnDate) {
+                      alert('يوم العودة مطلوب!');
+                      valid = false;
+                    }
+                    if (!hotelType) {
+                      alert('درجة الفندق مطلوبة!');
+                      valid = false;
+                    }
+                    if (!pilgrimageType) {
+                      alert('يرجى اختيار إما حج أو عمرة.');
                       valid = false;
                     }
 
-                    if (!phone.match(phonePattern)) {
-                      document.getElementsByName('field2')[0].nextElementSibling.style.display = 'block'; // Show phone error
-                      valid = false;
-                    }
-
-                    if (pilgrimageType.length === 0) {
-                      alert('Please select either حج or عمرة.');
-                      valid = false;
-                    }
-
+                    // Send email if valid
                     if (valid) {
                       emailjs.send("service_g669ln8", "template_h66wg7p", {
                         name: name,
@@ -2327,15 +2351,17 @@
                         departureDate: departureDate,
                         returnDate: returnDate,
                         hotelType: hotelType,
-                        pilgrimageType: Array.from(pilgrimageType).map(cb => cb.value).join(', ')
+                        pilgrimageType: pilgrimageType.value
                       }).then(function (response) {
-                        alert('تم ارسال حجزك بنجاح سوف يتم التواصل معك في أقرب وقت ممكن.'');
+                        alert('تم ارسال حجزك بنجاح سوف يتم التواصل معك في أقرب وقت ممكن.');
                       }, function (error) {
-                        alert('Failed to send email: ' + JSON.stringify(error));
+                        alert('فشل إرسال البريد الإلكتروني: ' + JSON.stringify(error));
                       });
                     }
                   });
                 </script>
+
+
 
 
 
